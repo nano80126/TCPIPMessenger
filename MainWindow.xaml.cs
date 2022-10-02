@@ -44,12 +44,29 @@ namespace RS485Temperature
 
         private void Send_Click(object sender, RoutedEventArgs e)
         {
-            if (_tcpClient?.Connected == true)
+            try
             {
-                _networkStream = _tcpClient.GetStream();
+                if (_tcpClient?.Connected == true)
+                {
 
-                byte[] data = Encoding.UTF8.GetBytes(MsgTextBox.Text);
-                _networkStream.Write(data, 0, data.Length);
+                    _networkStream = _tcpClient.GetStream();
+
+                    byte[] data = Encoding.UTF8.GetBytes(MsgTextBox.Text);
+                    _networkStream.Write(data, 0, data.Length);
+
+
+                    byte[] res = new byte[256];
+                    int i = _networkStream.Read(res, 0, res.Length);
+
+                    System.Diagnostics.Debug.WriteLine($"{i} {_networkStream.DataAvailable}");
+                    string msg = Encoding.UTF8.GetString(res, 0, i);
+                    System.Diagnostics.Debug.WriteLine($"{msg}");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                TcpConnect.IsChecked = false;
             }
         }
 

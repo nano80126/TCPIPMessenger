@@ -79,8 +79,8 @@
                             <materialDesign:PackIcon Width="26" Height="22" Kind="Refresh"/>
                         </Button>-->
 
-                        <ToggleButton x:Name="OpenSerialPort" Margin="8 0 0 0" MinWidth="45" ToolTip="(F6) Open COM Port" Cursor="Hand" Focusable="False" IsChecked="False"
-                                Background="LimeGreen" Checked="OpenSerialPort_Checked" Unchecked="OpenSerialPort_Unchecked">
+                        <ToggleButton x:Name="TcpConnect" Margin="8 0 0 0" MinWidth="45" ToolTip="(F6) Open COM Port" Cursor="Hand" Focusable="False" IsChecked="False"
+                                Background="LimeGreen" Checked="Connect_Checked" Unchecked="Connect_Unchecked">
                             <ToggleButton.Style>
                                 <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource MaterialDesignSwitchToggleButton}">
                                     <Style.Triggers>
@@ -106,11 +106,10 @@
 
                 <materialDesign:Card x:Name="ThermometerCard" materialDesign:ElevationAssist.Elevation="Dp0" Margin="8 8" VerticalAlignment="Stretch">
                     <StackPanel Orientation="Vertical" Background="Transparent">
-                        <TextBox x:Name="MsgTextBox" HorizontalAlignment="Stretch" Padding="8 4" AcceptsReturn="True" Height="100"
-                                 materialDesign:HintAssist.Hint="Message" 
+                        <TextBox x:Name="MsgTextBox" HorizontalAlignment="Stretch" Padding="8 4" AcceptsReturn="True" Height="100" materialDesign:HintAssist.Hint="Message"
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" />
 
-                        <Button HorizontalAlignment="Right" Margin="0 12 0 0" Height="24" Content="SEND" Style="{StaticResource MaterialDesignOutlinedButton}" Click="Send_Click" />
+                        <Button HorizontalAlignment="Right" Margin="0 8 0 0" Height="24" Content="SEND" Style="{StaticResource MaterialDesignOutlinedButton}" Click="Send_Click" />
                     </StackPanel>
                 </materialDesign:Card>
             </Grid>
