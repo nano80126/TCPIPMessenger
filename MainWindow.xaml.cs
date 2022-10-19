@@ -32,6 +32,8 @@ namespace RS485Temperature
         {
             //Thermometer = FindResource("Thermometer") as Thermometer;
             //RefreshBtn.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+
+            Dictionary<int, int> dict = new Dictionary<int, int>();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
